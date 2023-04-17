@@ -39,7 +39,7 @@ jobs:
         uses: peter-evans/create-or-update-comment@v1
         with:
           issue-number: ${{ github.event.issue.number }}
-          body: The issue is now resolved.
+          body: The issue is now resolved
 
   welcome_on_first_pr:
     runs-on: ubuntu-latest
