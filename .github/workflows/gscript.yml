@@ -28,7 +28,6 @@ jobs:
             Thanks for opening this issue! We'll take a look as soon as possible.
 
   close_issue:
-    name: Close Issue Comment
     runs-on: ubuntu-latest
     permissions:
       issues: write
