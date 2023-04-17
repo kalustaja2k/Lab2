@@ -2,7 +2,7 @@ name: Label & Comment Issues
 
 on:
   issues:
-    types: [opened, reopened]
+    types: [opened, reopened, closed]
 
 jobs:
   label_issues:
@@ -28,15 +28,17 @@ jobs:
             Thanks for opening this issue! We'll take a look as soon as possible.
 
   close_issue:
+    needs: label_issues
     runs-on: ubuntu-latest
     permissions:
       issues: write
+    if: github.event.issue.state == 'closed' && github.event.issue.pull_request == null
     steps:
-      - name: Close Issue
-        uses: peter-evans/close-issue@v3
+      - name: Comment on closed issue
+        uses: peter-evans/create-or-update-comment@v1
         with:
           issue-number: ${{ github.event.issue.number }}
-          comment: The issue is now resolved.
+          body: The issue is now resolved.
 
   welcome_on_first_pr:
     runs-on: ubuntu-latest
