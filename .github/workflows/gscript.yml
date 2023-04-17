@@ -27,5 +27,15 @@ jobs: # The jobs that run in this workflow
           body: | # The body of the comment is a message thanking the user for opening the issue.
            Thanks for opening this issue! We'll take a look as soon as possible.
 # Comment on when an issue is closed
-
+      - name: Close Issue
+        uses: peter-evans/close-issue@v3
+        with:
+          issue-number: 1
+          comment: Closing the issue
 # Comment on when an users opens the first pull request 
+      - name: Welcome
+        uses: wow-actions/welcome@v1
+        with:
+                  FIRST_PR: |
+                    👋 @{{ author }}
+                    Thanks for opening this pull request!
