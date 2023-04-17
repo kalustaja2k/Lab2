@@ -30,7 +30,7 @@ jobs: # The jobs that run in this workflow
       - name: Close Issue
         uses: peter-evans/close-issue@v3
         with:
-          issue-number: 1
+          issue-number: ${{ github.event.issue.number }}
           comment: Closing the issue
 # Comment on when an users opens the first pull request 
       - name: Welcome
