@@ -43,7 +43,7 @@ jobs:
 
   welcome_on_first_pr:
     runs-on: ubuntu-latest
-    if: github.event.pull_request.number == 1
+    if: github.event.pull_request.number == 31
     steps:
       - name: Welcome Message
         uses: wow-actions/welcome@v1
