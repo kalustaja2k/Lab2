@@ -28,16 +28,16 @@ jobs:
             Thanks for opening this issue! We'll take a look as soon as possible.
 
   close_issue:
+    name: Close Issue Comment
     runs-on: ubuntu-latest
     permissions:
       issues: write
-    if: github.event.action == 'closed' && !contains(github.event.pull_request.head.repo.full_name, github.repository)
     steps:
       - name: Close Issue
         uses: peter-evans/close-issue@v3
         with:
           issue-number: ${{ github.event.issue.number }}
-          comment: The issue is now resolved. Thanks for reporting!
+          comment: The issue is now resolved.
 
   welcome_on_first_pr:
     runs-on: ubuntu-latest
